@@ -5,7 +5,6 @@ from flask import redirect
 import random
 import string
 import qrcode
-import os
 
 app = Flask(__name__)
 
@@ -60,10 +59,7 @@ def home():
 @app.route("/shorten", methods=["POST"])
 def shorten_url():
     long_url = request.form["url"]
-    code = generate_code()
-
-    while code_exists(code):
-        code = generate_code()
+    
 
     conn = sqlite3.connect("urls.db")
     cursor = conn.cursor()
@@ -80,7 +76,7 @@ def shorten_url():
     )
     conn.commit()
     conn.close()
-    short_url = f"http:127.0.0.1:5000/{code}"
+    short_url = request.host_url + code
 
     img = qrcode.make(short_url)
     img.save(f"static/{code}.png")
