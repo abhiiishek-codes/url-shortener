@@ -21,10 +21,6 @@ def init_db():
     conn.commit()
     conn.close()
 
-def generate_code(length=5):
-    characters = string.ascii_letters + string.digits
-    return ''.join(random.choice(characters) for _ in range(length))
-
 def code_exists(code):
     conn = sqlite3.connect("urls.db")
     cursor = conn.cursor()
