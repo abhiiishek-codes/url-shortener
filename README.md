@@ -1,22 +1,24 @@
-# URL Shortener
+# 🔗 URL Shortener
 
-A simple web application that converts long URLs into short links.
+A web application that converts long URLs into short, shareable links.
 
 ## Features
-- Enter a long URL
-- Generate a short URL
-- Redirect to the original website
+- Base62 encoding for deterministic short URL generation
+- Automatic redirection
+- QR code generation
+- SQLite database storage
 
-## Tech Used
-- HTML
-- CSS
-- JavaScript
+## Tech Stack
+Python, Flask, SQLite, HTML, CSS, JavaScript
 
-## Project Link
-https://url-shortener-oviz.onrender.com/
+## Demo
+Live: https://url-shortener-oviz.onrender.com
 
-## GitHub Repository
-https://github.com/abhiiishek-codes/url-shortener
+## Screenshot
+![App Screenshot](screenshot.png)
 
-## Author
-Abhishek Kumar
+## Installation
+git clone https://github.com/abhiiishek-codes/url-shortener.git
+cd url-shortener
+pip install -r requirements.txt
+python3 app.py
